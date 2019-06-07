@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="start">
+		<h1  class="text-center" style="font-size: 180px;">Выберите уровень сложности</h1>
+		<div class="row " style="padding-left: 1100px; padding-top: 200px;">
+			<div style="height: 1280px; width: 720px; padding-left: 100px;" class="">
+				<img src="sli.jpg" class="sli w-100" style=" ">
+				<h1 class="text-center text-success" style="font-size: 100px;">Легкий</h1>
+			</div>
+			<div style="height: 1280px; width: 720px; padding-left: 100px;" class="">
+				<img src="puf.jpg" class="puf w-100" style="">
+				<h1 class="text-center text-warning" style="font-size: 100px;">Средний</h1>
+			</div>
+			<div style="height: 1280px; width: 720px; padding-left: 100px;" class="">
+				<img src="gri.png" class="gri w-100" style="">
+				<h1 class="text-center text-danger" style="font-size: 100px;">Тяжелый</h1>
+			</div>		
+		</div>
+	</div>
+
+	<div class="kvi " style="display: none; ">
+		<h1 style="font-size: 100px;">ВЫ участвуете в финале кубка по Квиддичу со Слизерином!Ваша задача собрать красные Квоффлы ,за которые дают 100 очков ,не ловите синие Бладжеры,за желтый Снитч дают 250очков!Соберите 1000 очков за 20 сек</h1>
+		<h1 style="font-size: 100px;" class="score_block">0</h1>
+	</div>
+	<div class="kvi1 " style="display: none; ">
+		<h1 style="font-size: 100px;">ВЫ участвуете в финале кубка по Квиддичу с Пуффендуем!Ваша задача собрать красные Квоффлы ,за которые дают 75 очков ,не ловите синие Бладжеры,за желтый Снитч дают 200очков!Соберите 1000 очков за 15 сек</h1>
+		<h1 style="font-size: 100px;" class="score_block1">0</h1>
+	</div>
+	<div class="kvi2 " style="display: none; ">
+		<h1 style="font-size: 100px;">ВЫ участвуете в финале кубка по Квиддичу с Гриффиндором!Ваша задача собрать красные Квоффлы ,за которые дают 50 очков ,не ловите синие Бладжеры,за желтый Снитч дают 150очков!Соберите 1000 очков за 13 сек</h1>
+		<h1 style="font-size: 100px;" class="score_block2">0</h1>
+	</div>
+
+	<script type="text/javascript">
+	let score = document.querySelector(".score_block");
+	score =0;
+
+	let score1 = document.querySelector(".score_block1");
+	score1 =0;
+
+	let score2 = document.querySelector(".score_block2");
+	score2 =0;
+
+	alert("желательный масштаб 33 %")
+
+	document.querySelector(".sli").onclick = function(){
+		alert("Мини-игра'Квиддич'");
+		document.querySelector(".start").style.display="none"
+		document.querySelector(".kvi").style.display="block"
+
+			let x = function() {
+				let rand_left = Math.random()*5000 ;
+				let round_left = Math.round(rand_left) ;
+
+				let rand_top = Math.random()*1100 ;
+				let round_top = Math.round(rand_top); 
+
+				let cub = document.createElement("div");
+				document.body.appendChild(cub);
+				cub.style.height = "100px";
+				cub.style.width = "100px";
+				cub.style.background = "blue";
+				cub.style.position = "absolute";
+
+				cub.style.marginLeft = round_left+"px"
+				cub.style.marginTop = round_top+"px"
+				cub.onclick = function(){
+					cub.style.display="none";
+					score=score-20;
+					document.querySelector(".score_block").innerHTML = score;
+				}
+			}
+			let y = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub2 = document.createElement("div");
+					document.body.appendChild(cub2);
+					cub2.style.height = "100px";
+					cub2.style.width = "100px";
+					cub2.style.background = "red";
+					cub2.style.position = "absolute";
+
+					cub2.style.marginLeft = round_left+"px"
+					cub2.style.marginTop = round_top+"px"
+					cub2.onclick = function(){
+						cub2.style.display="none";
+						score=score+100;
+						document.querySelector(".score_block").innerHTML = score;
+					}
+				}
+				
+
+			let z = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub3 = document.createElement("div");
+					document.body.appendChild(cub3);
+					cub3.style.height = "50px";
+					cub3.style.width = "50px";
+					cub3.style.background = "yellow";
+					cub3.style.position = "absolute";
+
+					cub3.style.marginLeft = round_left+"px"
+					cub3.style.marginTop = round_top+"px"
+					cub3.onclick = function(){
+						cub3.style.display="none";
+						score=score+250;
+						document.querySelector(".score_block").innerHTML = score;
+					}
+
+				}
+				
+
+				let ochki = function(){
+					if (score >= 1000) {
+						alert("ты молодец.Обнови страницу")
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+
+					}
+					else{
+						alert("О нет.Мы заняли 2 место ,могли бы лучше!Обнови страницу");
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+					}
+				}
+				let timerID = setInterval(x,50);
+				let timerID2 = setInterval(y,300);
+				let timerID3 = setInterval(z,2500);
+				setTimeout(ochki,20000)
+				
+	}
+
+	document.querySelector(".puf").onclick = function(){
+		alert("Мини-игра'Квиддич'");
+		document.querySelector(".start").style.display="none"
+		document.querySelector(".kvi1").style.display="block"
+
+			let x = function() {
+				let rand_left = Math.random()*5000 ;
+				let round_left = Math.round(rand_left) ;
+
+				let rand_top = Math.random()*1100 ;
+				let round_top = Math.round(rand_top); 
+
+				let cub = document.createElement("div");
+				document.body.appendChild(cub);
+				cub.style.height = "100px";
+				cub.style.width = "100px";
+				cub.style.background = "blue";
+				cub.style.position = "absolute";
+
+				cub.style.marginLeft = round_left+"px"
+				cub.style.marginTop = round_top+"px"
+				cub.onclick = function(){
+					cub.style.display="none";
+					score1=score1-50;
+					document.querySelector(".score_block1").innerHTML = score1;
+				}
+			}
+			let y = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub2 = document.createElement("div");
+					document.body.appendChild(cub2);
+					cub2.style.height = "100px";
+					cub2.style.width = "100px";
+					cub2.style.background = "red";
+					cub2.style.position = "absolute";
+
+					cub2.style.marginLeft = round_left+"px"
+					cub2.style.marginTop = round_top+"px"
+					cub2.onclick = function(){
+						cub2.style.display="none";
+						score1=score1+75;
+						document.querySelector(".score_block1").innerHTML = score1;
+					}
+				}
+				
+
+			let z = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub3 = document.createElement("div");
+					document.body.appendChild(cub3);
+					cub3.style.height = "50px";
+					cub3.style.width = "50px";
+					cub3.style.background = "yellow";
+					cub3.style.position = "absolute";
+
+					cub3.style.marginLeft = round_left+"px"
+					cub3.style.marginTop = round_top+"px"
+					cub3.onclick = function(){
+						cub3.style.display="none";
+						score1=score1+200;
+						document.querySelector(".score_block1").innerHTML = score1;
+					}
+
+				}
+				
+
+				let ochki = function(){
+					if (score1 >= 1000) {
+						alert("ты молодец.Обнови страницу")
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+
+					}
+					else{
+						alert("О нет.Мы заняли 2 место ,могли бы лучше!Обнови страницу");
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+					}
+				}
+				let timerID = setInterval(x,40);
+				let timerID2 = setInterval(y,300);
+				let timerID3 = setInterval(z,2500);
+				setTimeout(ochki,15000)
+				
+	}
+
+	document.querySelector(".gri").onclick = function(){
+		alert("Мини-игра'Квиддич'");
+		document.querySelector(".start").style.display="none"
+		document.querySelector(".kvi2").style.display="block"
+
+			let x = function() {
+				let rand_left = Math.random()*5000 ;
+				let round_left = Math.round(rand_left) ;
+
+				let rand_top = Math.random()*1100 ;
+				let round_top = Math.round(rand_top); 
+
+				let cub = document.createElement("div");
+				document.body.appendChild(cub);
+				cub.style.height = "100px";
+				cub.style.width = "100px";
+				cub.style.background = "blue";
+				cub.style.position = "absolute";
+
+				cub.style.marginLeft = round_left+"px"
+				cub.style.marginTop = round_top+"px"
+				cub.onclick = function(){
+					cub.style.display="none";
+					score2=score2-50;
+					document.querySelector(".score_block2").innerHTML = score2;
+				}
+			}
+			let y = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub2 = document.createElement("div");
+					document.body.appendChild(cub2);
+					cub2.style.height = "100px";
+					cub2.style.width = "100px";
+					cub2.style.background = "red";
+					cub2.style.position = "absolute";
+
+					cub2.style.marginLeft = round_left+"px"
+					cub2.style.marginTop = round_top+"px"
+					cub2.onclick = function(){
+						cub2.style.display="none";
+						score2=score2+75;
+						document.querySelector(".score_block2").innerHTML = score2;
+					}
+				}
+				
+
+			let z = function() {
+					let rand_left = Math.random()*5000 ;
+					let round_left = Math.round(rand_left) ;
+
+					let rand_top = Math.random()*2000 ;
+					let round_top = Math.round(rand_top); 
+
+					let cub3 = document.createElement("div");
+					document.body.appendChild(cub3);
+					cub3.style.height = "50px";
+					cub3.style.width = "50px";
+					cub3.style.background = "yellow";
+					cub3.style.position = "absolute";
+
+					cub3.style.marginLeft = round_left+"px"
+					cub3.style.marginTop = round_top+"px"
+					cub3.onclick = function(){
+						cub3.style.display="none";
+						score2=score2+200;
+						document.querySelector(".score_block2").innerHTML = score2;
+					}
+
+				}
+				
+
+				let ochki = function(){
+					if (score2 >= 1000) {
+						alert("ты молодец.Обнови страницу")
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+
+					}
+					else{
+						alert("О нет.Мы заняли 2 место ,могли бы лучше!Обнови страницу");
+						clearInterval(timerID);
+						clearInterval(timerID2);
+						clearInterval(timerID3);
+					}
+				}
+				let timerID = setInterval(x,30);
+				let timerID2 = setInterval(y,300);
+				let timerID3 = setInterval(z,2500);
+				setTimeout(ochki,13000)
+				
+	}
+
+	</script>
+
+</body>
+</html>
